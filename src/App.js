@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import NavigationTabs from './components/NavigationTabs';
+import Characters from './components/Characters';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className='app-title'>Rick and Morty Epichar</h1>
+      <div className='main-section'>
+      <NavigationTabs />
+      <Routes>
+        <Route exact path='/' element={<h1>Episodes</h1>} />
+        <Route path='/characters' element={< Characters />} />
+        <Route path='/about' element={<h1>About</h1>} />
+      </Routes>
+      </div>
     </div>
   );
 }
