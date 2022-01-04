@@ -1,0 +1,13 @@
+.characters-section {
+    display: flex;
+    padding: 2rem 1rem;
+}
+
+.characters-container {
+    margin: 0;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,23 @@
+.modal-container {
+    background: #3b3e43;
+    color: white;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.label {
+    text-align: left;
+    font-weight: bold;
+    color: #a3a7b1;
+}
+
+.location-value {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: antiquewhite;
+}

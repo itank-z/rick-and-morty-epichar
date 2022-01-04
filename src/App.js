@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
-import NavigationTabs from './components/NavigationTabs';
+import NavigationTabs from 'components/NavigationTabs';
 import Characters from './components/Characters';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className='app-body'>
       <h1 className='app-title'>Rick and Morty Epichar</h1>
       <div className='main-section'>
       <NavigationTabs />

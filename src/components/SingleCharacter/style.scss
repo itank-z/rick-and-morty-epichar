@@ -1,8 +1,9 @@
 .character-profile {
     height: 220px;
     width: 500px;
+    margin: 0 2rem 2rem;
     display: flex;
-    background: #3c3e44;
+    background: #3b3e43;
     border-radius: 1rem;
 }
 
@@ -28,9 +29,29 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 1.25rem;
+    
+    p {
+        margin: 0.3rem;
+    }
+}
+
+.character-header {
+    display: inline-flex;
 }
 
 .character-name {
+    justify-content: center;
+    &:hover {
+        color: green;
+    } 
+}
+
+.status-symbol {
+    height: 1rem;
+    width: 1rem;
+    margin: 0.5rem;
+    border-radius: 50%;
+    background: #20b720;
     justify-content: center;
 }
 
@@ -46,4 +67,33 @@
 
 .field-value {
     margin-left: 1rem;
+}
+
+.status-value {
+    color: #1dd51d;
+    font-weight: bold;
+}
+
+.location-access {
+    display: inline-flex;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+    padding: 0.2rem 1rem;
+    border-radius: 1rem;
+    background: #202020;
+    box-shadow: 0.15rem 0.15rem 0.05rem grey;
+    &:hover {
+        box-shadow: 0.15rem 0.15rem 0.05rem #c5c553;
+        color: #c5c553;
+    }
+}
+
+.location-label {
+    justify-content: center;
+    margin: 0;
+}
+
+.location-icon {
+    margin-left: 0.4rem;
 }
