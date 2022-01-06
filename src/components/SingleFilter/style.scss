@@ -1,6 +1,7 @@
 .filter-container {
     height: auto;
     width: auto;
+    margin-top: 1rem;
     border: 2px solid antiquewhite;
     border-radius: 1rem;
 }
@@ -23,8 +24,8 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex-flow: wrap;
 }
 
 .hide-filter-content {

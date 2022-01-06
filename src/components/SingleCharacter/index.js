@@ -1,16 +1,25 @@
 import location from 'static/icons/location.svg';
+import doofus_rick from 'static/images/doofus_rick.jpeg';
 import './style.scss';
 
-const SingleCharacter = ({ openModal }) => {
+const SingleCharacter = ({ data, openModal }) => {
+    const {
+        image,
+        name,
+        status,
+        species,
+        gender,
+    } = data;
+    
     return (
         <div className='character-profile'>
 
-            <img className='character-image' src='https://rickandmortyapi.com/api/character/avatar/103.jpeg' alt='character profile' />
+            <img className='character-image' src={doofus_rick} alt='character profile' />
 
             <div className='character-details'>
                 <span className='character-header'>
                     <div className='status-symbol' />
-                    <h3 className='character-name'>Doofus Rick</h3>
+                    <h3 className='character-name'>{name}</h3>
                 </span>
 
                 <div className='character-info'>
@@ -20,9 +29,9 @@ const SingleCharacter = ({ openModal }) => {
                         <p>Gender:</p>
                     </div>
                     <div className='field-value'>
-                        <p className='status-value'>unknown</p>
-                        <p>Human</p>
-                        <p>Male</p>
+                        <p className='status-value'>{status}</p>
+                        <p>{species}</p>
+                        <p>{gender}</p>
                     </div>
                 </div>
 
@@ -31,7 +40,6 @@ const SingleCharacter = ({ openModal }) => {
                     <img className='location-icon' src={location} alt='location icon' />
                 </div>
             </div>
-
         </div>
     );
 }

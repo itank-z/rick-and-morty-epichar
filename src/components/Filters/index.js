@@ -1,12 +1,16 @@
 import SingleFilter from 'components/SingleFilter';
 import './style.scss';
 
-const Filters = () => {
+const Filters = ({filtersInfo}) => {
     return (
         <div className='filters-section'>
             <div className='filters-header'>Filters</div>
             <div className='filters-container'>
-                <SingleFilter />
+                {
+                    filtersInfo.map(({title, options}, index) => (
+                        <SingleFilter key={index} title={title} options={options} />
+                    ))
+                }
             </div>
         </div>
     );

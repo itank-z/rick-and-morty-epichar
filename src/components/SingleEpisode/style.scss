@@ -1,0 +1,35 @@
+.episode-container {    
+    height: fit-content;
+    width: 400px;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+.episode-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.view-character-icon {
+    border: 2px double whitesmoke;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0.2rem 0.5rem 0 grey;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.episode-placement {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+

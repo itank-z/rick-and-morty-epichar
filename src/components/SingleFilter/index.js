@@ -3,13 +3,13 @@ import doubleArrowUp from 'static/icons/double_arrow_up.svg';
 import doubleArrowDown from 'static/icons/double_arrow_down.svg';
 import './style.scss';
 
-const SingleFilter = () => {
+const SingleFilter = ({title, options}) => {
     const [show, setShow] = useState(false);
 
     return (
         <div className='filter-container'>
             <div className='filter-header' onClick={() => { setShow(!show) }}>
-                <span>Status</span>
+                <span>{title}</span>
                 {
                     show ?
                         <img src={doubleArrowUp} alt='double arrow up' />
@@ -18,7 +18,9 @@ const SingleFilter = () => {
                 }
             </div>
             <div className={show ? 'filter-content' : 'hide-filter-content'}>
-                Contents
+                {
+                    options.map((option, index) => (<label key={index}><input type='checkbox' /> {option}</label>))
+                }
             </div>
         </div>
     );
