@@ -1,0 +1,32 @@
+.pagination-container {
+    width: 100%;
+    padding: 0 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paginate-button {
+    color: whitesmoke;
+    background: #202020;
+    border: 1px solid white;
+    &:hover {
+        color: yellow;
+        border-color: yellow;
+    }
+}
+
+.next-button {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem 1rem 1rem 0.5rem;
+}
+
+.previous-button {
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem 0.5rem 0.5rem 1rem;
+}
+
+.page-button {
+    width: 2rem;
+    padding: 0.2rem 0.5rem;
+}
