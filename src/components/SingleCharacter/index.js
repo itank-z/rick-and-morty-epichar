@@ -1,5 +1,4 @@
 import location from 'static/icons/location.svg';
-import doofus_rick from 'static/images/doofus_rick.jpeg';
 import './style.scss';
 
 const SingleCharacter = ({ data, openModal }) => {
@@ -14,7 +13,7 @@ const SingleCharacter = ({ data, openModal }) => {
     return (
         <div className='character-profile'>
 
-            <img className='character-image' src={doofus_rick} alt='character profile' />
+            <img className='character-image' src={image} alt='character profile' />
 
             <div className='character-details'>
                 <span className='character-header'>

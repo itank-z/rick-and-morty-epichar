@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import Filters from "components/Filters";
-import Search from "components/Search";
-import SingleCharacter from "../SingleCharacter";
-import LocationModal from "components/LocationModal";
+import { useEffect, useState } from 'react';
+import Filters from 'components/Filters';
+import Search from 'components/Search';
+import SingleCharacter from 'components/SingleCharacter';
+import LocationModal from 'components/LocationModal';
+import Pagination from 'components/Pagination';
 import { getCall } from 'utils/api.js';
 import './style.scss';
-import data from 'stubData/characters.json';
 
 const Characters = () => {
     const [showModal, setShowModal] = useState(false);
@@ -24,10 +24,8 @@ const Characters = () => {
 
     useEffect(() => {
         (async () => {
-            const rawData = await getCall('https://jsonplaceholder.typicode.com/posts');
-            console.log("received data: ", rawData);
-            console.log(data);
-            setCharactersData(JSON.parse(JSON.stringify(data)));
+            const rawData = await getCall(process.env.REACT_APP_API_ROOT_URL + process.env.REACT_APP_CHARACTER_ENDPOINT);
+            setCharactersData(JSON.parse(JSON.stringify(rawData.data.results)));
         })();
     }, []);
 
@@ -45,6 +43,7 @@ const Characters = () => {
                         />
                     ))
                 }
+                <Pagination />
                 <LocationModal modalData={modalData} show={showModal} closeModal={() => { setShowModal(false) }} />
             </div>
         </div>

@@ -31,7 +31,7 @@ const Episodes = () => {
             <div className='episodes-container'>
                 <Search />
                 {
-                    episodesData.map(episode => (<SingleEpisode episodeInfo={episode} />))
+                    episodesData.map(episode => (<SingleEpisode key={episode.id} episodeInfo={episode} />))
                 }
             </div>
         </div>
