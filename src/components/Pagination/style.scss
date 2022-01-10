@@ -19,14 +19,27 @@
 .next-button {
     padding: 0.2rem 0.5rem;
     border-radius: 0.5rem 1rem 1rem 0.5rem;
+    &:disabled {
+        color: grey;
+        border-color: grey;
+    }
 }
 
 .previous-button {
     padding: 0.2rem 0.5rem;
     border-radius: 1rem 0.5rem 0.5rem 1rem;
+    &:disabled {
+        color: grey;
+        border-color: grey;
+    }
 }
 
 .page-button {
     width: 2rem;
     padding: 0.2rem 0.5rem;
+}
+
+.active-page-button {
+    color: yellow;
+    border-color: yellow;
 }

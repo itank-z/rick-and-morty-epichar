@@ -1,4 +1,3 @@
-// import viewList from 'static/icons/list.svg';
 import './style.scss';
 
 const SingleEpisode = ({ episodeInfo }) => {
@@ -10,8 +9,8 @@ const SingleEpisode = ({ episodeInfo }) => {
     } = episodeInfo;
 
     const episodeIndices = episode.match(/\d+/g);
-    const episodeNo = episodeIndices[0];
-    const seasonNo = episodeIndices[1];
+    const seasonNo = episodeIndices[0];
+    const episodeNo = episodeIndices[1];
 
     return (
         <div className='episode-container'>
@@ -32,7 +31,6 @@ const SingleEpisode = ({ episodeInfo }) => {
                 <div>Episode</div>
                 <div>{episodeNo}</div>
             </div>
-            {/* <img className='view-character-icon' src={viewList} alt='character list icon' onClick={openModal} /> */}
         </div>
     );
 };
