@@ -5,17 +5,17 @@ import Search from 'components/Search';
 import SingleCharacter from 'components/SingleCharacter';
 import LocationModal from 'components/LocationModal';
 import Pagination from 'components/Pagination';
-import { getCall } from 'utils/api.js';
+import { getCharactersByPage, getCharactersByQueries } from 'utils/characterCalls';
 import './style.scss';
 
 const Characters = () => {
     const filtersInfo = [
         {
-            title: 'Status',
+            title: 'status',
             options: ['alive', 'dead', 'unknown']
         },
         {
-            title: 'Gender',
+            title: 'gender',
             options: ['male', 'female', 'genderless', 'unknown']
         }
     ];
@@ -25,24 +25,70 @@ const Characters = () => {
     const [charactersData, setCharactersData] = useState(null);
     const [metaData, setMetaData] = useState({});
     const [modalData, setModalData] = useState({});
+    const [queries, setQueries] = useState({
+        name: '',
+        status: '',
+        gender: '',
+    });
     const [pageNo, setPageNo] = useState(1);
+
+    const createQuery = (queryObject, page = 1) => {
+        let urlQuery = `page=${page}`;
+        for (let temp in queryObject) {
+            urlQuery += (queryObject[temp] ? `&${temp}=${queryObject[temp]}` : '');
+        }
+        return urlQuery;
+    };
 
     useEffect(() => {
         (async () => {
             setIsLoading(true);
-            let rawData = await getCall(process.env.REACT_APP_API_ROOT_URL + process.env.REACT_APP_CHARACTER_ENDPOINT + `?page=${pageNo}`);
-
-            setCharactersData(rawData.data.results);
-            setMetaData(rawData.data.info);
+            const rawData = await getCharactersByQueries(createQuery(queries));
+            setPageNo(1);
+            setCharactersData(rawData.results);
+            setMetaData(rawData.info);
             setIsLoading(false);
         })();
-    }, [pageNo]);
+    }, [queries]);
+
+    const handlePageChange = async (pageNo) => {
+        setIsLoading(true);
+        setPageNo(pageNo);
+        const rawData = await getCharactersByQueries(createQuery(queries, pageNo));
+        setCharactersData(rawData.results);
+        setMetaData(rawData.info);
+        setIsLoading(false);
+    };
+
+    const handleSearchByName = async (characterName) => {
+        const newQueries = JSON.parse(JSON.stringify(queries));
+        newQueries.name = characterName;
+        setQueries(newQueries);
+        console.log("handleFilterChange check the new value of queries: ", queries);
+    };
+
+    const handleFilterChange = (name, value) => {
+        const newQueries = JSON.parse(JSON.stringify(queries));
+        newQueries[name] = value;
+        console.log("handleFilterChange check the new value of queries: ", newQueries);
+        setQueries(newQueries);
+    };
+
+    const clearFilters = () => {
+        const newQueries = JSON.parse(JSON.stringify(queries));
+        filtersInfo.forEach(({ title }) => newQueries[title] = '');
+        console.log("clearFilters check the new value of queries: ", newQueries);
+        setQueries(newQueries);
+    };
 
     return (
         <div className='characters-section'>
-            <Filters filtersInfo={filtersInfo} />
+            <Filters filtersInfo={filtersInfo}
+                handleFilterChange={(name, value) => { handleFilterChange(name, value) }}
+                clearFilters={() => clearFilters()}
+            />
             <div className='characters-container'>
-                <Search />
+                <Search handleSearch={(name) => { handleSearchByName(name) }} />
                 {
                     (isLoading) ?
                         (
@@ -60,7 +106,9 @@ const Characters = () => {
                             />
                         ))
                 }
-                <Pagination totalPages={metaData.pages} handlePageChange={pageVal => { setPageNo(pageVal) }} />
+                <Pagination activePage={pageNo} totalPages={metaData.pages}
+                    handlePageChange={pageVal => { handlePageChange(pageVal) }}
+                />
                 <LocationModal modalData={modalData} show={showModal} closeModal={() => { setShowModal(false) }} />
             </div>
         </div>
