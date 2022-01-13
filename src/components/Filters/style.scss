@@ -1,12 +1,16 @@
 .filters-section {
     height: fit-content;
     width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0.2rem;
     border: 1px solid white;
     border-radius: 1rem;
 }
 
 .filters-header {
+    width: 100%;
     margin-bottom: 1rem;
     padding: 1rem;
     font-size: 1.5rem;
@@ -14,6 +18,15 @@
     border: 1px solid white;
     border-radius: 1rem;
     color: antiquewhite;
+    text-align: center;
+}
+
+.clear-filters-button {
+    color: antiquewhite;
+    background: #3b3e43;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    width: fit-content;
 }
 
 .filters-container {
