@@ -1,25 +1,32 @@
 import { useEffect, useState } from 'react';
 import './style.scss';
 
-const Pagination = ({ totalPages, handlePageChange }) => {
+const Pagination = ({ activePage, totalPages, handlePageChange }) => {
     const totalPageIndices = totalPages < 5 ? totalPages : 5;
-    const [currentPageNo, setCurrentPageNo] = useState(1);
+    const [currentPageNo, setCurrentPageNo] = useState(activePage);
     const [pageOffset, setPageOffset] = useState(1);
 
     useEffect(() => {
-        if (totalPages > 5 && currentPageNo > 2 && (currentPageNo + 2) < totalPages) {
+        setCurrentPageNo(activePage);
+        if (activePage === 1) {
+            setPageOffset(1);
+        }
+    }, [activePage]);
+
+    useEffect(() => {
+        if (totalPages > 5 && currentPageNo > 2 && (currentPageNo + 1) < totalPages) {
             setPageOffset(currentPageNo - 2);
         }
 
-        console.log("changing page inside pagination current page no: ", currentPageNo);
-        handlePageChange(currentPageNo);
-    }, [currentPageNo, handlePageChange, totalPages]);
+        console.log("changing page inside pagination current page no: ", currentPageNo, totalPages, pageOffset);
+    }, [currentPageNo, totalPages]);
 
     return (
         <div className='pagination-container'>
             <button className='paginate-button previous-button'
                 disabled={currentPageNo <= 1}
                 onClick={() => {
+                    handlePageChange(currentPageNo - 1);
                     setCurrentPageNo(currentPageNo - 1);
                 }}
             >
@@ -38,7 +45,10 @@ const Pagination = ({ totalPages, handlePageChange }) => {
                             :
                             (<button key={pageNo}
                                 className='paginate-button page-button'
-                                onClick={() => setCurrentPageNo(pageNo)}
+                                onClick={() => {
+                                    handlePageChange(pageNo);
+                                    setCurrentPageNo(pageNo);
+                                }}
                             >
                                 {pageNo}
                             </button>);
@@ -48,6 +58,7 @@ const Pagination = ({ totalPages, handlePageChange }) => {
             <button className='paginate-button next-button'
                 disabled={currentPageNo >= totalPages}
                 onClick={() => {
+                    handlePageChange(currentPageNo + 1);
                     setCurrentPageNo(currentPageNo + 1);
                 }}
             >
