@@ -91,18 +91,22 @@ const Episodes = () => {
             />
             <div className='episodes-container'>
                 <Search handleSearch={(name) => { handleSearchByName(name) }} />
-                {
-                    (isLoading) ?
-                        (
-                            <Spinner animation='border' role='status'>
-                                <span className='visually-hidden'>Loading...</span>
-                            </Spinner>
-                        ) :
-                        episodesData.map(episode => (<SingleEpisode key={episode.id} episodeInfo={episode} />))
-                }
-                <Pagination activePage={pageNo} totalPages={metaData.pages}
-                    handlePageChange={pageVal => { handlePageChange(pageVal) }}
-                />
+                <div className="episodes-pagination">
+                    <div className="episodes-list">
+                        {
+                            (isLoading) ?
+                                (
+                                    <Spinner animation='border' role='status'>
+                                        <span className='visually-hidden'>Loading...</span>
+                                    </Spinner>
+                                ) :
+                                episodesData.map(episode => (<SingleEpisode key={episode.id} episodeInfo={episode} />))
+                        }
+                    </div>
+                    <Pagination activePage={pageNo} totalPages={metaData.pages}
+                        handlePageChange={pageVal => { handlePageChange(pageVal) }}
+                    />
+                </div>
             </div>
         </div>
     );

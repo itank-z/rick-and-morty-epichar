@@ -1,5 +1,5 @@
 .character-profile {
-    height: 220px;
+    height: fit-content;
     width: 500px;
     margin: 0 2rem 2rem;
     display: flex;
@@ -8,7 +8,7 @@
 }
 
 .character-image {
-    height: inherit;
+    height: 220px;
     width: auto;
     border-radius: 1rem 0 0 1rem;
 }
@@ -29,7 +29,7 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 1.25rem;
-    
+
     p {
         margin: 0.3rem;
     }
@@ -41,9 +41,23 @@
 
 .character-name {
     justify-content: center;
-    &:hover {
-        color: green;
-    } 
+    &-alive {
+        &:hover {
+            color: #20b720;
+        }
+    }
+
+    &-dead {
+        &:hover {
+            color: #e55050;
+        }
+    }
+
+    &-unknown {
+        &:hover {
+            color: #979797;
+        }
+    }
 }
 
 .status-symbol {
@@ -51,8 +65,19 @@
     width: 1rem;
     margin: 0.5rem;
     border-radius: 50%;
-    background: #20b720;
     justify-content: center;
+
+    &-alive {
+        background: #20b720;
+    }
+
+    &-dead {
+        background: #e55050;
+    }
+
+    &-unknown {
+        background: #979797;
+    }
 }
 
 .inline-detail {
@@ -72,6 +97,18 @@
 .status-value {
     color: #1dd51d;
     font-weight: bold;
+
+    &-alive {
+        color: #20b720;
+    }
+
+    &-dead {
+        color: #e55050;
+    }
+
+    &-unknown {
+        color: #979797;
+    }
 }
 
 .location-access {

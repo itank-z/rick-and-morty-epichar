@@ -9,7 +9,7 @@ const SingleCharacter = ({ data, openModal }) => {
         species,
         gender,
     } = data;
-    
+
     return (
         <div className='character-profile'>
 
@@ -17,8 +17,8 @@ const SingleCharacter = ({ data, openModal }) => {
 
             <div className='character-details'>
                 <span className='character-header'>
-                    <div className='status-symbol' />
-                    <h3 className='character-name'>{name}</h3>
+                    <div className={`status-symbol status-symbol-${status.toLowerCase()}`} />
+                    <h3 className={`character-name character-name-${status.toLowerCase()}`}>{name}</h3>
                 </span>
 
                 <div className='character-info'>
@@ -28,7 +28,7 @@ const SingleCharacter = ({ data, openModal }) => {
                         <p>Gender:</p>
                     </div>
                     <div className='field-value'>
-                        <p className='status-value'>{status}</p>
+                        <p className={`status-value status-value-${status.toLowerCase()}`}>{status.toUpperCase()}</p>
                         <p>{species}</p>
                         <p>{gender}</p>
                     </div>
