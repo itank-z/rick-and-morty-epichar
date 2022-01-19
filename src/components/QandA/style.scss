@@ -1,0 +1,22 @@
+.q-and-a-container {
+    width: 65%;
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 3px dotted white;
+    border-radius: 1rem;
+}
+
+.question {
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+}
+
+.answer {
+    margin-top: 0.6rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-top: 2px dotted white;
+}
