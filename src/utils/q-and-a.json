@@ -1,14 +1,19 @@
 [
     {
         "question": "What is this?",
-        "answer": "The Rick and Morty Fandom Dictionary is a React Project based on the television show Rick and Morty. You can search episodes and characters to scratch that brain itch about any episode or character."
+        "answer": "The Rick and Morty Fandom Dictionary is a React Project based on the television show Rick and Morty. You can search episodes and characters to scratch that brain itch about any episode or character.",
+        "link": []
     },
     {
         "question": "APIs?",
-        "answer": "The APIs are open source."
+        "answer": "The APIs are open source. Courtesy of Axel Fuhrmann and Talita. Checkout their documentation at this link: {link_0}",
+        "link": [
+            "https://rickandmortyapi.com/"
+        ]
     },
     {
         "question": "Copyright?",
-        "answer": "Rick and Morty is created by Justin Roiland and Dan Harmon for Adult Swim. The data and images are used without claim of ownership and belong to their respective owners."
+        "answer": "Rick and Morty is created by Justin Roiland and Dan Harmon for Adult Swim. The data and images are used without claim of ownership and belong to their respective owners.",
+        "link": []
     }
 ]
