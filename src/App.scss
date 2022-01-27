@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "SupermercadoOne-Regular";
+    src: url("static/fonts/SupermercadoOne-Regular.ttf") format("truetype");
+}
+
 .app-body {
     min-height: 100vh;
     height: 100%;
@@ -9,8 +14,13 @@
 }
 
 .app-title {
+    font-family: "SupermercadoOne-Regular";
+    font-size: 4rem;
     text-align: center;
-    color: #f5f5f5;
+    color: #8d8b7a;
+    padding: 1.5rem 0;
+    background: linear-gradient(#66644a, #24282d);
+    text-shadow: 2px 2px #262626;
 }
 
 .main-section {
