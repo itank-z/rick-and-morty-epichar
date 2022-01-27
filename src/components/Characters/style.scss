@@ -5,9 +5,24 @@
 
 .characters-container {
     margin: 0;
-    padding: 2rem 1rem;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.characters-list {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+}
+
+.character-spinner {
+    width: 80%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
 }

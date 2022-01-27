@@ -89,23 +89,27 @@ const Characters = () => {
             />
             <div className='characters-container'>
                 <Search handleSearch={(name) => { handleSearchByName(name) }} />
-                {
-                    (isLoading) ?
-                        (
-                            <Spinner animation='border' role='status'>
-                                <span className='visually-hidden'>Loading...</span>
-                            </Spinner>
-                        )
-                        :
-                        charactersData.map(character => (
-                            <SingleCharacter key={character.id} data={character}
-                                openModal={() => {
-                                    setModalData({ name: character.name, origin: character.origin.name, location: character.location.name })
-                                    setShowModal(true);
-                                }}
-                            />
-                        ))
-                }
+                <div className='characters-list'>
+                    {
+                        (isLoading) ?
+                            (
+                                <div className='character-spinner'>
+                                    <Spinner animation='border' role='status'>
+                                        <span className='visually-hidden'>Loading...</span>
+                                    </Spinner>
+                                </div>
+                            )
+                            :
+                            charactersData.map(character => (
+                                <SingleCharacter key={character.id} data={character}
+                                    openModal={() => {
+                                        setModalData({ name: character.name, origin: character.origin.name, location: character.location.name })
+                                        setShowModal(true);
+                                    }}
+                                />
+                            ))
+                    }
+                </div>
                 <Pagination activePage={pageNo} totalPages={metaData.pages}
                     handlePageChange={pageVal => { handlePageChange(pageVal) }}
                 />
